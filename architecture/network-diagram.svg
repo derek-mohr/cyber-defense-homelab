@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="620" fill="#ffffff"/>
+
+  <text x="450" y="34" text-anchor="middle" font-size="20" font-weight="600" fill="#1a1a1a">Cyber Defense Homelab — Network Architecture</text>
+  <text x="450" y="54" text-anchor="middle" font-size="12" fill="#777">VirtualBox host, single machine, three isolated segments</text>
+
+  <!-- Host boundary -->
+  <rect x="30" y="80" width="840" height="500" rx="10" fill="none" stroke="#c9c9c9" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="46" y="100" font-size="12" fill="#999">VirtualBox Host (Windows)</text>
+
+  <!-- Internet -->
+  <rect x="380" y="112" width="140" height="46" rx="8" fill="#eef2f7" stroke="#8fa3bd" stroke-width="1.5"/>
+  <text x="450" y="140" text-anchor="middle" font-size="13" fill="#33475b">Internet (NAT / WAN)</text>
+
+  <!-- pfSense -->
+  <rect x="360" y="200" width="180" height="70" rx="8" fill="#fde9d9" stroke="#e08e2b" stroke-width="1.8"/>
+  <text x="450" y="224" text-anchor="middle" font-size="14" font-weight="600" fill="#8a4b0a">pfSense-Firewall</text>
+  <text x="450" y="242" text-anchor="middle" font-size="11" fill="#8a4b0a">em0 WAN · em1 LAN · em2 OPT1</text>
+  <text x="450" y="257" text-anchor="middle" font-size="10" fill="#8a4b0a">GUI: https://10.10.10.1/ (LAN-only)</text>
+
+  <line x1="450" y1="158" x2="450" y2="200" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Corporate LAN box -->
+  <rect x="70" y="320" width="380" height="230" rx="10" fill="#eaf4ec" stroke="#5a9e6f" stroke-width="1.5"/>
+  <text x="90" y="344" font-size="13" font-weight="600" fill="#2b6a3f">Corporate-LAN — 10.10.10.0/24</text>
+  <text x="90" y="360" font-size="10" fill="#4c7a5a">gateway 10.10.10.1 · DHCP .100–.200</text>
+
+  <rect x="90" y="378" width="150" height="52" rx="6" fill="#ffffff" stroke="#5a9e6f"/>
+  <text x="165" y="399" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">AD-DomainController</text>
+  <text x="165" y="414" text-anchor="middle" font-size="10" fill="#666">10.10.10.10 (static)</text>
+
+  <rect x="260" y="378" width="150" height="52" rx="6" fill="#ffffff" stroke="#5a9e6f" stroke-dasharray="4,3"/>
+  <text x="335" y="399" text-anchor="middle" font-size="11" fill="#888">Win10 Workstation</text>
+  <text x="335" y="414" text-anchor="middle" font-size="10" fill="#999">+ Sysmon (planned)</text>
+
+  <rect x="90" y="448" width="150" height="52" rx="6" fill="#ffffff" stroke="#5a9e6f" stroke-dasharray="4,3"/>
+  <text x="165" y="469" text-anchor="middle" font-size="11" fill="#888">Security Onion</text>
+  <text x="165" y="484" text-anchor="middle" font-size="10" fill="#999">SIEM / IDS (planned)</text>
+
+  <!-- Attacker Net box -->
+  <rect x="530" y="320" width="280" height="230" rx="10" fill="#fbe9ec" stroke="#c9576b" stroke-width="1.5"/>
+  <text x="550" y="344" font-size="13" font-weight="600" fill="#8f2b3c">Attacker-Net — 10.10.20.0/24</text>
+  <text x="550" y="360" font-size="10" fill="#a15060">gateway 10.10.20.1 · DHCP .100–.200</text>
+
+  <rect x="560" y="390" width="220" height="52" rx="6" fill="#ffffff" stroke="#c9576b" stroke-dasharray="4,3"/>
+  <text x="670" y="411" text-anchor="middle" font-size="11" fill="#888">Kali Linux</text>
+  <text x="670" y="426" text-anchor="middle" font-size="10" fill="#999">Atomic Red Team techniques (planned)</text>
+
+  <!-- Connections from pfSense -->
+  <line x1="400" y1="270" x2="260" y2="320" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="290" y="300" font-size="10" fill="#555">em1 / LAN</text>
+
+  <line x1="500" y1="270" x2="660" y2="320" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="590" y="300" font-size="10" fill="#555">em2 / OPT1</text>
+
+  <!-- Legend -->
+  <rect x="70" y="570" width="14" height="14" fill="#ffffff" stroke="#5a9e6f"/>
+  <text x="90" y="581" font-size="10" fill="#555">Built</text>
+  <rect x="150" y="570" width="14" height="14" fill="#ffffff" stroke="#888" stroke-dasharray="4,3"/>
+  <text x="170" y="581" font-size="10" fill="#555">Planned</text>
+</svg>
