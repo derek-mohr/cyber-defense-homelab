@@ -41,7 +41,7 @@ where it can be logged and inspected.
 
 - [x] VirtualBox host prepared, NAT Networks created (`Corporate-LAN`, `Attacker-Net`)
 - [x] pfSense firewall deployed and configured (WAN/LAN/OPT1, DHCP on both internal segments)
-- [ ] Active Directory domain controller
+- [x] Active Directory domain controller
 - [ ] Windows 10 workstation, domain-joined, Sysmon installed
 - [ ] Security Onion SIEM/IDS
 - [ ] Kali Linux attacker VM
